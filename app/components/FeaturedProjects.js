@@ -1,10 +1,5 @@
-import {
-  Code2,
-  Cpu,
-  Brain,
-  LayoutDashboard,
-  MousePointer2,
-} from "lucide-react";
+import Image from "next/image";
+import { MousePointer2 } from "lucide-react";
 import Reveal from "./Reveal";
 import { SectionIntro, sectionGrid, screenSection } from "./SectionLabel";
 
@@ -12,30 +7,26 @@ const projects = [
   {
     title: ["Enterprise web", "platform"],
     tag: "Software",
-    tagClass: "border-sky-edge bg-sky",
-    previewClass: "bg-linear-to-br from-sky to-sky-edge",
-    Icon: Code2,
+    tagClass: "border-[#db4a90] bg-[#f072cd]",
+    image: "https://placehold.co/730x636/png?text=Enterprise+web+platform",
   },
   {
     title: ["Fleet telemetry", "system"],
     tag: "IoT",
-    tagClass: "border-blossom-edge bg-blossom",
-    previewClass: "bg-linear-to-br from-blossom to-blossom-edge",
-    Icon: Cpu,
+    tagClass: "border-[#1c6ab1] bg-[#5ab5e8]",
+    image: "https://placehold.co/730x636/png?text=Fleet+telemetry+system",
   },
   {
     title: ["Predictive", "analytics suite"],
     tag: "ML / AI",
-    tagClass: "border-sun-edge bg-sun",
-    previewClass: "bg-linear-to-br from-sun to-sun-edge",
-    Icon: Brain,
+    tagClass: "border-[#bb9c2a] bg-[#e5c141]",
+    image: "https://placehold.co/730x636/png?text=Predictive+analytics+suite",
   },
   {
     title: ["Ops control", "dashboard"],
     tag: "Software",
-    tagClass: "border-sky-edge bg-sky",
-    previewClass: "bg-linear-to-br from-blossom to-sky",
-    Icon: LayoutDashboard,
+    tagClass: "border-[#4ed543] bg-[#7cf072]",
+    image: "https://placehold.co/730x636/png?text=Ops+control+dashboard",
   },
 ];
 
@@ -54,19 +45,21 @@ export default function FeaturedProjects() {
 
       <Reveal className="min-w-0 w-full">
         <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
-          {projects.map(({ title, tag, tagClass, previewClass, Icon }, i) => (
+          {projects.map(({ title, tag, tagClass, image }, i) => (
             <article
               key={tag + title[0]}
               className={`border-ink hover:shadow-hover group flex flex-col overflow-hidden rounded-md border-[3px] bg-white transition-shadow duration-200 motion-fade-up motion-d${i + 1}`}
             >
-              <div
-                className={`relative flex aspect-[365/318] items-center justify-center ${previewClass}`}
-              >
-                <Icon
-                  aria-hidden
-                  strokeWidth={1.25}
-                  className="text-ink/50 size-16 transition-transform duration-200 group-hover:scale-105"
-                />
+              <div className="px-4 pt-4">
+                <div className="relative aspect-[365/318] overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={title.join(" ")}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-200 group-hover:scale-105"
+                  />
+                </div>
               </div>
 
               <div className="relative flex items-end justify-between gap-3 px-4 py-4">
@@ -78,14 +71,14 @@ export default function FeaturedProjects() {
                   ))}
                 </h3>
 
-                <div className="relative shrink-0 pb-0.5">
+                <div className="relative shrink-0 pt-5 pl-5">
                   <MousePointer2
                     aria-hidden
-                    className="fill-ink text-ink absolute -top-3 -left-3 size-5 transition-transform duration-200 group-hover:translate-x-2 group-hover:translate-y-1"
+                    className="fill-ink text-ink absolute top-0 left-0 size-[22px] transition-transform duration-200 group-hover:translate-x-1.5 group-hover:translate-y-1"
                     strokeWidth={1.5}
                   />
                   <span
-                    className={`text-ink shadow-raised inline-flex rounded-md border-2 px-4 py-2 font-sans text-micro font-medium ${tagClass}`}
+                    className={`shadow-raised inline-flex items-center rounded-[2px_1.5rem_1.5rem_1.5rem] border-2 px-[18px] py-2 font-sans text-micro font-medium text-white ${tagClass}`}
                   >
                     {tag}
                   </span>

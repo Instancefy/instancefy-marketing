@@ -6,6 +6,14 @@ const nextConfig = {
    * silently prevents the client bundle from hydrating.
    */
   allowedDevOrigins: ["127.0.0.1", "127.0.2.2", "0.0.0.0", "*.local"],
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
