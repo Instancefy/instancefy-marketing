@@ -1,0 +1,420 @@
+/* Tailwind CSS v4 - Must be first */
+@import "tailwindcss";
+
+/* HeroUI v3 styles - Must be after Tailwind */
+@import "@heroui/styles";
+
+/*
+ * HeroUI Theme Customization
+ * @see https://heroui.com/docs/react/getting-started/theming
+ */
+
+:root,
+.light,
+.default,
+[data-theme="light"],
+[data-theme="default"] {
+  /* Theme Colors (Light Mode) */
+  --accent: #0c0c0c;
+  --accent-foreground: oklch(99.11% 0 0);
+  --background: oklch(97.02% 0.0000 0.00);
+  --border: oklch(90.00% 0.0000 0.00);
+  --danger: oklch(0.573 0.2249 21.97);
+  --danger-foreground: oklch(98% 0.0200 21.97);
+  --default: oklch(94.00% 0.0000 0.00);
+  --default-foreground: oklch(21.03% 0.0059 0.00);
+  --field-background: oklch(100.00% 0.0000 0.00);
+  --field-border: transparent;
+  --field-foreground: oklch(21.03% 0.0000 0.00);
+  --field-placeholder: oklch(55.17% 0.0000 0.00);
+  --focus: #0c0c0c;
+  --foreground: #0c0c0c;
+  --muted: #706f6f;
+  --overlay: oklch(100.00% 0.0000 0.00);
+  --overlay-foreground: oklch(21.03% 0.0000 0.00);
+  --scrollbar: oklch(87.10% 0.0000 0.00);
+  --segment: oklch(100.00% 0.0000 0.00);
+  --segment-foreground: oklch(21.03% 0.0000 0.00);
+  --separator: oklch(92.00% 0.0000 0.00);
+  --success: oklch(0.6277 0.1604 153.06);
+  --success-foreground: oklch(98% 0.0160 153.06);
+  --surface: oklch(100.00% 0.0000 0.00);
+  --surface-foreground: oklch(21.03% 0.0000 0.00);
+  --surface-secondary: oklch(95.24% 0.0000 0.00);
+  --surface-secondary-foreground: oklch(21.03% 0.0000 0.00);
+  --surface-tertiary: oklch(93.73% 0.0000 0.00);
+  --surface-tertiary-foreground: oklch(21.03% 0.0000 0.00);
+  --warning: oklch(0.8446 0.1525 80.6);
+  --warning-foreground: oklch(15% 0.0457 80.60);
+  --accent-soft-foreground: oklch(0 0 0);
+
+  /* Border Radius */
+  --radius: 0.375rem;
+  --field-radius: 0.375rem;
+
+  /* Font Family */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+  /* Theme Colors (Dark Mode) */
+  --accent: oklch(0.9848 0 0);
+  --accent-foreground: oklch(15% 0.0000 0.00);
+  --background: oklch(12.00% 0.0000 0.00);
+  --border: oklch(28.00% 0.0000 0.00);
+  --danger: oklch(0.7044 0.1872 23.19);
+  --danger-foreground: oklch(15% 0.0500 23.19);
+  --default: oklch(27.40% 0.0000 0.00);
+  --default-foreground: oklch(99.11% 0 0);
+  --field-background: oklch(21.03% 0.0000 0.00);
+  --field-border: transparent;
+  --field-foreground: oklch(99.11% 0.0000 0.00);
+  --field-placeholder: oklch(70.50% 0.0000 0.00);
+  --focus: oklch(0.9848 0 0);
+  --foreground: oklch(99.11% 0.0000 0.00);
+  --muted: oklch(70.50% 0.0000 0.00);
+  --overlay: oklch(21.03% 0.0000 0.00);
+  --overlay-foreground: oklch(99.11% 0.0000 0.00);
+  --scrollbar: oklch(70.50% 0.0000 0.00);
+  --segment: oklch(39.64% 0.0000 0.00);
+  --segment-foreground: oklch(99.11% 0.0000 0.00);
+  --separator: oklch(25.00% 0.0000 0.00);
+  --success: oklch(0.6514 0.1321 156.22);
+  --success-foreground: oklch(15% 0.0396 156.22);
+  --surface: oklch(21.03% 0.0000 0.00);
+  --surface-foreground: oklch(99.11% 0.0000 0.00);
+  --surface-secondary: oklch(25.70% 0.0000 0.00);
+  --surface-secondary-foreground: oklch(99.11% 0.0000 0.00);
+  --surface-tertiary: oklch(27.21% 0.0000 0.00);
+  --surface-tertiary-foreground: oklch(99.11% 0.0000 0.00);
+  --warning: oklch(0.8803 0.1348 86.06);
+  --warning-foreground: oklch(15% 0.0404 86.06);
+  --accent-soft-foreground: oklch(0.9848 0 0);
+}
+
+/* next/font → Tailwind utilities (font-sans, font-handlee) */
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-handlee: var(--font-handlee), cursive;
+
+  /* Ink */
+  --color-ink: #0c0c0c;
+  --color-ink-muted: #706f6f;
+
+  /*
+   * Brand triad. Every pastel surface pairs a `fill` with its `edge`
+   * (border) shade — no other hues belong in the palette.
+   */
+  --color-sun: #ffe68c;
+  --color-sun-edge: #eecd56;
+  --color-sky: #9ddcff;
+  --color-sky-edge: #5ab5e8;
+  --color-blossom: #ffc9f0;
+  --color-blossom-edge: #f384d4;
+
+  /*
+   * Type scale. Each role is fluid, so one utility covers every
+   * breakpoint instead of a three-step responsive chain.
+   */
+  --text-display: clamp(2.5rem, 1.5rem + 3.2vw, 4rem);
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.02em;
+
+  --text-numeral: clamp(2.5rem, 2.3rem + 0.9vw, 3rem);
+  --text-numeral--line-height: 1.2;
+  --text-numeral--letter-spacing: -0.02em;
+
+  --text-title: clamp(1.75rem, 1.35rem + 1.25vw, 2.25rem);
+  --text-title--line-height: 1.2;
+  --text-title--letter-spacing: -0.01em;
+
+  --text-label: clamp(1.625rem, 1.45rem + 0.75vw, 2rem);
+  --text-label--line-height: 1;
+
+  --text-wordmark: clamp(1.75rem, 1.68rem + 0.3vw, 1.875rem);
+  --text-wordmark--line-height: 1;
+
+  --text-chip: clamp(1.375rem, 1.27rem + 0.42vw, 1.625rem);
+  --text-chip--line-height: 1.1;
+
+  --text-lead: clamp(1.125rem, 0.95rem + 0.7vw, 1.5rem);
+  --text-lead--line-height: 1.4;
+
+  --text-nav: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
+  --text-nav--line-height: 1.5;
+
+  --text-body: clamp(0.9375rem, 0.85rem + 0.35vw, 1.125rem);
+  --text-body--line-height: 1.55;
+
+  --text-micro: clamp(0.875rem, 0.83rem + 0.2vw, 1rem);
+  --text-micro--line-height: 1.4;
+
+  /* Elevation */
+  --shadow-sticky: 1px 1px 12px rgb(0 0 0 / 0.08);
+  --shadow-card: 4px 4px 16px rgb(0 0 0 / 0.1);
+  --shadow-raised: 3px 3px 12px rgb(0 0 0 / 0.12);
+  --shadow-hover: 7px 7px 24px rgb(0 0 0 / 0.14);
+
+  /* Motion */
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-enter: 600ms;
+  --duration-hover: 180ms;
+}
+
+@layer base {
+  /*
+   * Stroke widths are a two-tier system: `border-[3px]` for structural
+   * elements (cards, page rules), `border-2` for small ones (chips,
+   * badges, fields).
+   */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+  }
+}
+
+:root {
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-enter: 600ms;
+  --duration-hover: 180ms;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sticky-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.92) rotate(-1.5deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes chip-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.45);
+  }
+  70% {
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wipe-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes wipe-bg {
+  from {
+    background-size: 0% 8px;
+  }
+  to {
+    background-size: 100% 8px;
+  }
+}
+
+@keyframes draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes draw-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes rail-grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@layer utilities {
+  .motion-d0 {
+    --motion-delay: 0ms;
+  }
+  .motion-d1 {
+    --motion-delay: 80ms;
+  }
+  .motion-d2 {
+    --motion-delay: 160ms;
+  }
+  .motion-d3 {
+    --motion-delay: 240ms;
+  }
+  .motion-d4 {
+    --motion-delay: 320ms;
+  }
+  .motion-d5 {
+    --motion-delay: 400ms;
+  }
+  .motion-d6 {
+    --motion-delay: 480ms;
+  }
+  .motion-d7 {
+    --motion-delay: 560ms;
+  }
+  .motion-d8 {
+    --motion-delay: 640ms;
+  }
+  .motion-d9 {
+    --motion-delay: 720ms;
+  }
+  .motion-d10 {
+    --motion-delay: 800ms;
+  }
+  .motion-d11 {
+    --motion-delay: 880ms;
+  }
+  .motion-d12 {
+    --motion-delay: 960ms;
+  }
+
+  .motion-fade-up {
+    animation: fade-up var(--duration-enter) var(--ease-settle)
+      var(--motion-delay, 0ms) both;
+  }
+
+  .motion-fade-in {
+    animation: fade-in 500ms var(--ease-settle) var(--motion-delay, 0ms) both;
+  }
+
+  .motion-settle {
+    animation: settle var(--duration-enter) var(--ease-settle)
+      var(--motion-delay, 0ms) both;
+  }
+
+  .motion-pop {
+    animation: sticky-pop 500ms var(--ease-settle) var(--motion-delay, 0ms) both;
+  }
+
+  .motion-chip {
+    animation: chip-in 420ms var(--ease-settle) var(--motion-delay, 0ms) both;
+  }
+
+  .motion-wipe {
+    transform-origin: left;
+    animation: wipe-x 500ms var(--ease-settle) var(--motion-delay, 0ms) both;
+  }
+
+  .motion-nav-mark {
+    animation: wipe-bg 500ms var(--ease-settle) var(--motion-delay, 0ms) both;
+  }
+
+  .motion-draw-x {
+    animation: draw-x 700ms var(--ease-settle) var(--motion-delay, 0ms) both;
+  }
+
+  .motion-draw-y {
+    animation: draw-y 700ms var(--ease-settle) var(--motion-delay, 0ms) both;
+  }
+
+  .motion-rail {
+    transform-origin: top;
+    animation: rail-grow 900ms var(--ease-settle) both;
+  }
+
+  .motion-grid {
+    animation: fade-in 800ms var(--ease-settle) 200ms both;
+  }
+
+  .motion-sway {
+    animation: sway 4s ease-in-out 1.1s infinite;
+  }
+}
+
+/*
+ * Enter animations are held back only once `Reveal` has armed itself, so
+ * content is never hidden by a script that failed to run.
+ */
+.reveal[data-armed]:not([data-in]) :is(
+    .motion-fade-up,
+    .motion-fade-in,
+    .motion-settle,
+    .motion-pop,
+    .motion-chip,
+    .motion-wipe,
+    .motion-draw-x,
+    .motion-draw-y
+  ) {
+  animation: none;
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .motion-sway {
+    animation: none !important;
+  }
+}
