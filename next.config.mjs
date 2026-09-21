@@ -6,7 +6,11 @@ const nextConfig = {
    * silently prevents the client bundle from hydrating.
    */
   allowedDevOrigins: ["127.0.0.1", "127.0.2.2", "0.0.0.0", "*.local"],
+  // Emit a fully static site into `out/` (no Node server required).
+  output: "export",
   images: {
+    // Default Image Optimization API needs a server; serve originals as-is.
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

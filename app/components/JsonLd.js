@@ -14,6 +14,8 @@ export default function JsonLd() {
       logo: {
         "@type": "ImageObject",
         url: `${url}${site.logoPath}`,
+        width: 512,
+        height: 512,
       },
       address: {
         "@type": "PostalAddress",

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import Wordmark from "./Wordmark";
 import { site } from "../../lib/site";
 
 /** `mobile: false` links are dropped below `sm` so the bar never wraps. */
@@ -16,16 +16,9 @@ export default function Navbar() {
       <Link
         href="/"
         aria-label={`${site.shortName} home`}
-        className="motion-fade-up inline-flex shrink-0 no-underline"
+        className="motion-fade-up text-ink inline-flex shrink-0 no-underline"
       >
-        <Image
-          src={site.wordmarkPath}
-          alt={site.shortName}
-          width={144}
-          height={32}
-          priority
-          className="h-8 w-auto brightness-0"
-        />
+        <Wordmark className="h-9 w-auto" />
       </Link>
 
       <nav

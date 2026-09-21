@@ -86,8 +86,8 @@ export default function Hero() {
 
         <div className="flex w-full max-w-[477px] flex-col items-start gap-8">
           <p className="text-ink text-lead motion-fade-up motion-d8 font-sans">
-            Instancefy Technologies delivers Software Development, IoT, and
-            ML/AI solutions for teams ready to ship.
+            Instancefy Technologies build software, IoT, and AI solutions for
+            people and businesses.
           </p>
           <div className="motion-fade-up motion-d9">
             <Button

@@ -57,7 +57,7 @@ export default function WorkExperience() {
             <div className="bg-ink motion-draw-y motion-d4 absolute -top-6 -bottom-6 left-0 w-[2px] origin-bottom" />
           </div>
 
-          <ul className="flex flex-col gap-10">
+          <ul className="flex flex-col gap-16">
             {steps.map(
               ({ n, role, highlight, detail, note, badgeClass }, i) => (
                 <li
@@ -80,9 +80,9 @@ export default function WorkExperience() {
                       <span className="font-bold">{highlight}</span>
                     </h3>
                     <p className="text-ink text-body font-sans">{detail}</p>
-                    <p className="text-ink-muted text-micro font-sans font-medium">
+                    {/* <p className="text-ink-muted text-micro font-sans font-medium">
                       {note}
-                    </p>
+                    </p> */}
                   </div>
                 </li>
               ),

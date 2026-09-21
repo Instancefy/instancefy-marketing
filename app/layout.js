@@ -42,11 +42,20 @@ export const metadata = {
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
+    images: [
+      {
+        url: site.ogImagePath,
+        width: 1024,
+        height: 730,
+        alt: `${site.name} — ${site.tagline}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.tagline}`,
     description: site.description,
+    images: [site.ogImagePath],
   },
   robots: {
     index: true,
@@ -62,12 +71,24 @@ export const metadata = {
   icons: {
     icon: [
       {
+        url: site.iconPath,
+        type: "image/png",
+        sizes: "96x96",
+      },
+      {
         url: "/favicon_black.ico",
         media: "(prefers-color-scheme: light)",
       },
       {
         url: "/favicon_white.ico",
         media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: [
+      {
+        url: "/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
       },
     ],
   },

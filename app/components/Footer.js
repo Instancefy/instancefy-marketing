@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import Reveal from "./Reveal";
+import Wordmark from "./Wordmark";
 import { site } from "../../lib/site";
 
 export default function Footer() {
@@ -13,15 +13,9 @@ export default function Footer() {
         <Link
           href="/"
           aria-label={`${site.shortName} home`}
-          className="inline-flex shrink-0 no-underline"
+          className="text-ink inline-flex shrink-0 no-underline"
         >
-          <Image
-            src={site.wordmarkPath}
-            alt={site.shortName}
-            width={144}
-            height={32}
-            className="h-8 w-auto brightness-0"
-          />
+          <Wordmark className="h-8 w-auto" />
         </Link>
         <div className="flex flex-col gap-0.5">
           <p className="text-ink-muted text-micro font-sans">{site.name}</p>
@@ -37,9 +31,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="motion-fade-up motion-d2 flex flex-col items-end gap-8 max-md:w-full max-md:items-start">
+      <div className="motion-fade-up motion-d2 flex flex-col items-end gap-5 max-md:w-full max-md:items-start">
         <nav
-          className="flex flex-wrap items-center justify-end gap-x-8 gap-y-3 max-md:justify-start"
+          className="flex flex-wrap items-center justify-end gap-6 max-md:justify-start"
           aria-label="Social"
         >
           {site.socials.map(({ label, href }) => (
@@ -48,14 +42,14 @@ export default function Footer() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink text-chip font-handlee bg-[linear-gradient(currentColor,currentColor)] bg-[length:0_2px] bg-[position:center_100%] bg-no-repeat no-underline transition-[background-size] duration-200 hover:bg-[length:100%_2px]"
+              className="bg-ink text-chip font-handlee rounded-none px-1 py-1.5 text-white no-underline transition-opacity duration-200 hover:opacity-80"
             >
               {label}
             </a>
           ))}
         </nav>
-        <p className="text-ink text-chip font-handlee">
-          © {new Date().getFullYear()} {site.name}
+        <p className="text-ink text-micro font-sans">
+          Copyright. {site.name} {new Date().getFullYear()}
         </p>
       </div>
     </Reveal>

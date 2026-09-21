@@ -4,30 +4,30 @@ import Reveal from "./Reveal";
 import { SectionIntro, sectionGrid, screenSection } from "./SectionLabel";
 
 const projects = [
+  // {
+  //   title: ["Enterprise web", "platform"],
+  //   tag: "Software",
+  //   tagClass: "border-[#db4a90] bg-[#f072cd]",
+  //   image: "https://placehold.co/730x636/png?text=Enterprise+web+platform",
+  // },
   {
-    title: ["Enterprise web", "platform"],
-    tag: "Software",
-    tagClass: "border-[#db4a90] bg-[#f072cd]",
-    image: "https://placehold.co/730x636/png?text=Enterprise+web+platform",
-  },
-  {
-    title: ["Fleet telemetry", "system"],
+    title: ["Vehicle Tracking", "system"],
     tag: "IoT",
     tagClass: "border-[#1c6ab1] bg-[#5ab5e8]",
-    image: "https://placehold.co/730x636/png?text=Fleet+telemetry+system",
+    image: "/projects/obosthan-web.webp",
   },
-  {
-    title: ["Predictive", "analytics suite"],
-    tag: "ML / AI",
-    tagClass: "border-[#bb9c2a] bg-[#e5c141]",
-    image: "https://placehold.co/730x636/png?text=Predictive+analytics+suite",
-  },
-  {
-    title: ["Ops control", "dashboard"],
-    tag: "Software",
-    tagClass: "border-[#4ed543] bg-[#7cf072]",
-    image: "https://placehold.co/730x636/png?text=Ops+control+dashboard",
-  },
+  // {
+  //   title: ["Predictive", "analytics suite"],
+  //   tag: "ML / AI",
+  //   tagClass: "border-[#bb9c2a] bg-[#e5c141]",
+  //   image: "https://placehold.co/730x636/png?text=Predictive+analytics+suite",
+  // },
+  // {
+  //   title: ["Ops control", "dashboard"],
+  //   tag: "Software",
+  //   tagClass: "border-[#4ed543] bg-[#7cf072]",
+  //   image: "https://placehold.co/730x636/png?text=Ops+control+dashboard",
+  // },
 ];
 
 export default function FeaturedProjects() {
@@ -57,6 +57,8 @@ export default function FeaturedProjects() {
                     alt={title.join(" ")}
                     fill
                     sizes="(max-width: 640px) 100vw, 50vw"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    fetchPriority={i === 0 ? "high" : "auto"}
                     className="object-cover transition-transform duration-200 group-hover:scale-105"
                   />
                 </div>
