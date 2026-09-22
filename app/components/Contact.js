@@ -11,7 +11,7 @@ import {
   screenSection,
 } from "./SectionLabel";
 
-const WEB3FORMS_ACCESS_KEY = "4bd5f104-bd89-434b-aec0-fd88f0b11f75";
+const WEB3FORMS_ACCESS_KEY = "60dc7215-6793-40e0-89c2-d28da82e0800";
 const TOAST_MS = 4000;
 
 const fields = [

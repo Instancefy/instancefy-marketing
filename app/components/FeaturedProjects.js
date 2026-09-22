@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { MousePointer2 } from "lucide-react";
 import Reveal from "./Reveal";
 import { SectionIntro, sectionGrid, screenSection } from "./SectionLabel";
@@ -9,24 +10,28 @@ const projects = [
   //   tag: "Software",
   //   tagClass: "border-[#db4a90] bg-[#f072cd]",
   //   image: "https://placehold.co/730x636/png?text=Enterprise+web+platform",
+  //   href: "https://example.com",
   // },
   {
     title: ["Vehicle Tracking", "system"],
     tag: "IoT",
     tagClass: "border-[#1c6ab1] bg-[#5ab5e8]",
     image: "/projects/obosthan-web.webp",
+    href: "https://obosthan.com",
   },
   // {
   //   title: ["Predictive", "analytics suite"],
   //   tag: "ML / AI",
   //   tagClass: "border-[#bb9c2a] bg-[#e5c141]",
   //   image: "https://placehold.co/730x636/png?text=Predictive+analytics+suite",
+  //   href: "https://example.com",
   // },
   // {
   //   title: ["Ops control", "dashboard"],
   //   tag: "Software",
   //   tagClass: "border-[#4ed543] bg-[#7cf072]",
   //   image: "https://placehold.co/730x636/png?text=Ops+control+dashboard",
+  //   href: "https://example.com",
   // },
 ];
 
@@ -45,13 +50,17 @@ export default function FeaturedProjects() {
 
       <Reveal className="min-w-0 w-full">
         <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
-          {projects.map(({ title, tag, tagClass, image }, i) => (
-            <article
+          {projects.map(({ title, tag, tagClass, image, href }, i) => (
+            <Link
               key={tag + title[0]}
-              className={`border-ink hover:shadow-hover group flex flex-col overflow-hidden rounded-md border-[3px] bg-white transition-shadow duration-200 motion-fade-up motion-d${i + 1}`}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${title.join(" ")} (opens in a new tab)`}
+              className={`border-ink hover:shadow-hover group flex flex-col overflow-hidden rounded-md border-[3px] bg-white no-underline transition-shadow duration-200 motion-fade-up motion-d${i + 1}`}
             >
               <div className="px-4 pt-4">
-                <div className="relative aspect-[365/318] overflow-hidden">
+                <div className="relative aspect-square overflow-hidden">
                   <Image
                     src={image}
                     alt={title.join(" ")}
@@ -86,7 +95,7 @@ export default function FeaturedProjects() {
                   </span>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </Reveal>
